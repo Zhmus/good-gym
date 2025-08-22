@@ -1,0 +1,11 @@
+@mixin breakpoint($point, $point-second: false, $type-second: false) {
+    @if ($point-second) {
+        @media screen and (max-width: #{$point}) and (#{$type-second}: #{$point-second}) {
+            @content;
+        }
+    } @else {
+        @media screen and (max-width: #{$point}) {
+            @content;
+        }
+    }
+}

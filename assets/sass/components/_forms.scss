@@ -1,0 +1,431 @@
+.form {
+  input,
+  select,
+  .mat-select-trigger {
+    font-family: $font-primary;
+    width: 100%;
+    border: 1px solid $clr-line;
+    font-size: 17px;
+    line-height: 24px;
+    padding: 11px 16px;
+    transition: all .3s;
+    background: transparent;
+    -webkit-appearance: none;
+
+    &:focus {
+      border-color: $clr-primary;
+    }
+  }
+  label {
+    font-size: 17px;
+    line-height: 24px;
+  }
+  .mat-form-field {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    width: 100%;
+    &-disabled {
+      opacity: .5;
+    }
+    &-wrapper {
+      padding: 0;
+    }
+    &-flex {
+      display: block;
+    }
+    &-infix {
+      border: 0;
+      padding: 0;
+      width: 100%;
+    }
+    &-underline {
+      height: 0;
+      opacity: 0;
+    }
+    .mat-select {
+      &-arrow {
+        color: $clr-line;
+      }
+    }
+    &-label-wrapper {
+      top: 0;
+      padding: 0;
+      overflow: visible;
+    }
+    &-appearance-legacy {
+      .mat-form-field-label {
+        width: 100%;
+        top: 0;
+        transform: none;
+        color: $clr-font-light;
+      }
+      &.mat-form-field-should-float {
+        .mat-form-field-label {
+          transform: scale(0.9) translateY(-50%);
+          width: 100%;
+          color: $clr-font-light;
+          top: 0;
+          span {
+            background: $clr-white;
+            padding: 0 4px;
+          }
+        }
+      }
+    }
+    &.mat-focused {
+      .mat-select {
+        &-arrow {
+          color: $clr-line;
+        }
+      }
+      .mat-form-field-label {
+        color: $clr-primary;
+      }
+      .mat-select-trigger {
+        border-color: $clr-primary;
+      }
+    }
+  }
+  &__radiobtns {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__radiobtn {
+    input {
+      display: none;
+      &:checked + span {
+        &:before {
+          border-color: $clr-primary;
+        }
+        &:after {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+    span {
+      padding-left: 36px;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        top: 2px;
+        left: 0;
+        border: 2px solid $clr-line-dark;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        transition: all .3s;
+      }
+      &:after {
+        position: absolute;
+        content: '';
+        top: 6px;
+        left: 4px;
+        background: $clr-primary;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        transition: all .3s;
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+  }
+  &__checkbox {
+    input {
+      display: none;
+      &:checked + span {
+        &:before {
+          background: rgba($clr-primary, .4);
+        }
+        &:after {
+          background: $clr-primary;
+          transform: translateX(18px);
+        }
+      }
+    }
+    span {
+      padding-left: 52px;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        top: 5px;
+        left: 0;
+        width: 36px;
+        height: 12px;
+        border-radius: 6px;
+        background: rgba($clr-line-dark, .4);
+        transition: all .3s;
+      }
+      &:after {
+        position: absolute;
+        content: '';
+        top: 2px;
+        left: 0;
+        background: $clr-line-dark;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        transition: all .3s;
+      }
+    }
+  }
+  &__row {
+    margin: 0 -24px 24px;
+    width: calc(100% + 48px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    @include breakpoint($mq-desktop-hd) {
+      margin: 0 -16px 24px;
+      width: calc(100% + 32px);
+    }
+    &--ident {
+      margin-bottom: 64px;
+    }
+  }
+  &__field {
+    padding: 16px 24px 0;
+    flex: 1 0 auto;
+    @include breakpoint($mq-desktop-hd) {
+      padding: 16px 16px 0;
+    }
+    &--flex {
+      flex: 1 0 0;
+    }
+    &--half {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+    &--moved {
+      label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        pointer-events: none;
+        transition: all .3s, color .1s;
+        transform-origin: 0 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: $clr-font-light;
+        span {
+          transition: all .3s;
+        }
+      }
+      input,
+      select {
+        &.is-filled + label {
+          transform: scale(0.9) translateY(-50%);
+          color: $clr-font-light;
+          span {
+            background: $clr-white;
+            padding: 0 4px;
+          }
+        }
+        &:focus + label {
+          transform: scale(0.9) translateY(-50%);
+          color: $clr-primary;
+          span {
+            background: $clr-white;
+            padding: 0 4px;
+          }
+        }
+      }
+    }
+    &--icon {
+      input {
+        padding-right: 48px;
+      }
+      &::ng-deep {
+        .svg-icon {
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          transform: translateY(-50%);
+          pointer-events: none;
+          use {
+            fill: $clr-font-light;
+            transition: all .3s;
+          }
+        }
+      }
+    }
+    &--error {
+      input,
+      select {
+        border: 1px solid $clr-error;
+        &.is-filled + label {
+          color: $clr-error;
+        }
+        &:focus + label {
+          color: $clr-primary;
+        }
+      }
+      label {
+        color: $clr-error;
+      }
+      .mat-form-field {
+        &-appearance-legacy {
+          .mat-form-field-label {
+            color: $clr-error;
+          }
+          &.mat-form-field-should-float {
+            .mat-form-field-label {
+              color: $clr-error;
+            }
+          }
+        }
+        &.mat-focused {
+          .mat-form-field-label {
+            color: $clr-primary;
+          }
+          .mat-select-trigger {
+            border-color: $clr-primary;
+          }
+        }
+      }
+    }
+  }
+  &__wrap {
+    position: relative;
+  }
+  &__reset {
+    transition: all .3s;
+    color: $clr-primary;
+    text-transform: uppercase;
+    white-space: nowrap;
+    &:hover {
+      color: $clr-secondary;
+    }
+  }
+  &__remove {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 48px;
+    height: 48px;
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 50%;
+      background: $clr-line;
+      width: 2px;
+      height: 20px;
+      transform-origin: 0 0;
+      transition: all .3s;
+    }
+    &:before {
+      transform: rotate(45deg) translate(-50%, -50%);
+    }
+    &:after {
+      transform: rotate(-45deg) translate(-50%, -50%);
+    }
+    &:hover {
+      &:before,
+      &:after {
+        background: $clr-primary;
+      }
+      &:before {
+        transform: rotate(135deg) translate(-50%, -50%);
+      }
+      &:after {
+        transform: rotate(45deg) translate(-50%, -50%);
+      }
+    }
+  }
+  &__add {
+    color: $clr-primary;
+    padding-left: 30px;
+    position: relative;
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 0;
+      background: $clr-primary;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 20px;
+      transition: all .3s;
+    }
+    &:before {
+      width: 2px;
+      height: 14px;
+      left: 6px;
+    }
+    &:after {
+      width: 14px;
+      height: 2px;
+      left: 0;
+    }
+    &:hover {
+      color: $clr-secondary;
+      &:before,
+      &:after {
+        background: $clr-secondary;
+      }
+    }
+  }
+  &__footer {
+    margin-top: 88px;
+  }
+  &__error {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+    line-height: 14px;
+    color: $clr-error;
+    i {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-style: normal;
+    }
+  }
+}
+
+::ng-deep {
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: $clr-primary;
+  }
+  .mat-calendar-cell-semi-selected {
+    background-color: rgba($clr-primary, .4);
+  }
+  .mat-calendar-body-begin-range:not(.mat-calendar-body-end-range) {
+    border-radius: 100% 0 0 100%;
+    background-color: rgba($clr-primary, .4);
+  }
+  .mat-calendar-body-end-range:not(.mat-calendar-body-begin-range) {
+    border-radius: 0 100% 100% 0;
+    background-color: rgba($clr-primary, .4);
+  }
+  .mat-custom-select {
+    margin: 50px 0 62px;
+  }
+  .mat-datepicker-popup {
+    margin: 2px 0 14px;
+  }
+  .mat-calendar-body-selected {
+    background: $clr-primary;
+  }
+}
+

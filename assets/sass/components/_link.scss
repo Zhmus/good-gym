@@ -1,0 +1,83 @@
+.link {
+  font-size: 31px;
+  line-height: 32px;
+  color: $clr-primary;
+  font-weight: 600;
+  transition: all .3s;
+  @include breakpoint($mq-desktop-medium) {
+    font-size: 24px;
+    line-height: 24px;
+  }
+  @include breakpoint($mq-mobile-medium) {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  &:hover {
+    color: $clr-secondary;
+  }
+  &--arrow {
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    pointer-events: none;
+    span {
+      display: block;
+      pointer-events: auto;
+      padding-right: 20px;
+    }
+    .arrow {
+      display: block;
+      position: relative;
+      flex-grow: 1;
+      max-width: 36px;
+      transition: all .7s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: auto;
+      &:before {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: $clr-primary;
+        transition: all .3s;
+      }
+      &:after {
+        position: absolute;
+        content: '';
+        top: 50%;
+        right: 3px;
+        border-right: 2px solid $clr-primary;
+        border-top: 2px solid $clr-primary;
+        width: 28px;
+        height: 28px;
+        margin-top: 1px;
+        transform: translateY(-50%) rotate(45deg);
+        transition: all .3s;
+        @include breakpoint($mq-desktop-medium) {
+          width: 24px;
+          height: 24px;
+        }
+        @include breakpoint($mq-mobile-medium) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    &:hover {
+      pointer-events: auto;
+      .arrow {
+        max-width: 100%;
+        &:before {
+          background: $clr-secondary;
+        }
+        &:after {
+          border-right: 2px solid $clr-secondary;
+          border-top: 2px solid $clr-secondary;
+        }
+      }
+    }
+  }
+}

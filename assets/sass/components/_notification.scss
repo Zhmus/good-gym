@@ -1,0 +1,50 @@
+.notification {
+  position: fixed;
+  top: 50%;
+  left: calc(50% + 60px);
+  background: $clr-white;
+  padding: 20px;
+  transform: translate(-50%, -20%);
+  text-align: center;
+  animation: notification 4s cubic-bezier(0.5, 0, 0.5, 1) 1;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  &--error {
+    &:after {
+      background: rgba($clr-error, .3);
+    }
+  }
+}
+
+@keyframes notification {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -20%);
+  }
+  2% {
+    transform: translate(-50%, -60%);
+  }
+  3% {
+    transform: translate(-50%, -55%);
+  }
+  4% {
+    transform: translate(-50%, -50%);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+}

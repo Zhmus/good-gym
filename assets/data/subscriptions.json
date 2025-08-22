@@ -1,0 +1,17 @@
+[
+  {
+    "Id": "5d2712b8bf4218213ad98990",
+    "Name": "Subscription #0",
+    "Cost": "$4654.08"
+  },
+  {
+    "Id": "5d2712b81b37d8d1088ca8ab",
+    "Name": "Subscription #1",
+    "Cost": "$1019.32"
+  },
+  {
+    "Id": "5d2712b8a264e777aa9761c1",
+    "Name": "Subscription #2",
+    "Cost": "$2771.27"
+  }
+]

@@ -1,0 +1,16 @@
+.btn {
+  display: inline-block;
+  transition: all .3s;
+  &-admin {
+    background: $clr-primary;
+    color: $clr-white;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    font-size: 17px;
+    line-height: 24px;
+    min-width: 254px;
+    &:hover {
+      background: $clr-secondary;
+    }
+  }
+}

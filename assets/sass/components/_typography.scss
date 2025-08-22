@@ -1,0 +1,45 @@
+.title-main {
+  font-size: 96px;
+  line-height: 110px;
+  font-weight: 800;
+  font-family: $font-title;
+  @include breakpoint($mq-desktop-medium) {
+    font-size: 64px;
+    line-height: 72px;
+  }
+  @include breakpoint($mq-mobile-medium) {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.descr {
+  font-size: 25px;
+  line-height: 30px;
+  @include breakpoint($mq-desktop-medium) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  @include breakpoint($mq-mobile-medium) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @include breakpoint($mq-mobile-min) {
+    font-size: 14px;
+  }
+  p + p {
+    margin-top: 30px;
+    @include breakpoint($mq-desktop-medium) {
+      margin-top: 24px;
+    }
+    @include breakpoint($mq-mobile-medium) {
+      margin-top: 20px;
+    }
+  }
+}
+
+.admin-title {
+  font-size: 31px;
+  line-height: 48px;
+  color: $clr-title;
+}
